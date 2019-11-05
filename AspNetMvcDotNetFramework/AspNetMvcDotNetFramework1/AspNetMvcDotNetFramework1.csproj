@@ -273,14 +273,7 @@
     <Content Include="styles\responsive.css" />
     <Content Include="styles\shop_responsive.css" />
     <Content Include="styles\shop_styles.css" />
-    <Content Include="Views\Home\blog.html" />
-    <Content Include="Views\Home\blog_single.html" />
-    <Content Include="Views\Home\cart.html" />
-    <Content Include="Views\Home\contact.html" />
     <None Include="Views\Home\index.cshtml" />
-    <Content Include="Views\Home\product.html" />
-    <Content Include="Views\Home\regular.html" />
-    <Content Include="Views\Home\shop.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
