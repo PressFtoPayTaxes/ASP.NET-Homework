@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Net.Mail;
-using System.Net;
 
 namespace AspNetMvcDotNetFramework1.Controllers
 {
@@ -19,9 +18,7 @@ namespace AspNetMvcDotNetFramework1.Controllers
         [HttpPost]
         public ActionResult SendEmail(string email)
         {
-            SmtpClient client = new SmtpClient("smtp.mail.ru", 25);
-            client.Credentials = new NetworkCredential("igor_2002_25@mail.ru", "GoFuckYourselfHack3r");
-            client.EnableSsl = true;
+            SmtpClient client = new SmtpClient("localhost", 2222);
             client.Send("igor_2002_25@mail.ru", email, "Subscribtion", "Congratulations! You subscribed to OneTech shop!");
 
             return Index();
