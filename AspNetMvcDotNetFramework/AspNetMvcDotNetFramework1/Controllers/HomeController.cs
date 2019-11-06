@@ -20,7 +20,7 @@ namespace AspNetMvcDotNetFramework1.Controllers
         public ActionResult SendEmail(string email)
         {
             SmtpClient client = new SmtpClient("smtp.mail.ru", 25);
-            client.Credentials = new NetworkCredential("igor_2002_25@mail.ru", "GoFuckYourselfHack3r");
+            client.Credentials = new NetworkCredential("igor_2002_25@mail.ru", "********************");
             client.EnableSsl = true;
             client.Send("igor_2002_25@mail.ru", email, "Subscribtion", "Congratulations! You subscribed to OneTech shop!");
 
