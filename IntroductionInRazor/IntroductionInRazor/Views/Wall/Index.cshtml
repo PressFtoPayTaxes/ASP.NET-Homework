@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "Index";
+    var posts = ViewData["Posts"] as List<IntroductionInRazor.Models.Post>;
+}
+
+<h2>The WALL</h2>
+
+<form>
+    <h3>Write Message:</h3>
+    <input type="text" name="author" placeholder="Your name" />
+    <br />
+    <textarea name="text" placeholder="Your message"></textarea>
+    <br />
+    <button id="send">Send</button>
+</form>
+
+<div id="posts">
+    @foreach(var post in posts)
+    {
+        <h3>@post.Author:</h3>
+        <p>@post.Text</p>
+    }
+</div>
+
+<script>
+    $('#send').on("click", function () {
+        $.post({
+            url: "SaveData"
+        })
+    });
+
+    function update() {
+        $.get({
+            url: "GetData",
+            success(response) {
+                $("#posts").html('');
+                for (var i = 0; i < response.length; i++) {
+                    $('#posts').prepend(`<h3>${response.responseData[i].Author}:</h3>
+                                         <p>${response.responseData[i].Text}</p>`);
+                }
+            }
+        });
+    }
+</script>
