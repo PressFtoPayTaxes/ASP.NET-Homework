@@ -38,6 +38,20 @@
         <img src="~/images/img_new.jpg" width="61" height="61" alt="" />
         <p id="newText"><span class="headline2">Lorem ipsum dolor sit amet, consectetuer </span> elit. elit. Nam eu nulla. Donec lobortis purus vel urna. Nunc laoreet lacinia nunc. In volutpat sodales ipsum. Sed vestibulum. </p>
         <div class="clear"></div>
+        <ul>
+            <li class='song'><span>Nightmare</span> <div><button onclick='getFile("dwd")'>Download</button></div></li>
+            <li class='song'><span>Welcome To The Family</span> <div ><button onclick="DownloadSong('Welcome To The Family.mp3')">Download</button></div></li>
+            <li class='song'><span>Danger Line</span> <div><button onclick="DownloadSong('Danger Line.mp3')">Download</button></div></li>
+            <li class='song'><span>Buried Alive</span> <div><button onclick="DownloadSong('Buried Alive.mp3')">Download</button></div></li>
+            <li class='song'><span>Natural Born Killer</span> <div><button onclick="DownloadSong('Natural Born Killer.mp3')">Download</button></div></li>
+            <li class='song'><span>So Far Away</span> <div><button onclick="DownloadSong('So Far Away.mp3')">Download</button></div></li>
+            <li class='song'><span>God Hates Us</span> <div><button onclick="DownloadSong('God Hates Us.mp3')">Download</button></div></li>
+            <li class='song'><span>Victim</span> <div><button onclick="DownloadSong('Victim.mp3')">Download</button></div></li>
+            <li class='song'><span>Tonight The World Dies</span> <div><button onclick="DownloadSong('Tonight The World Dies.mp3')">Download</button></div></li>
+            <li class='song'><span>Fiction</span> <div><button onclick="DownloadSong('Fiction.mp3')">Download</button></div></li>
+            <li class='song'><span>Save Me</span> <div><button onclick="DownloadSong('Save Me.mp3')">Download</button></div></li>
+        </ul>
+        <div class="all"><button>Download Full Album</button></div>
         <p><a href="#">Quisque ut magna et nisi bibendum sagittis. Fusce elit ligula, sodales sit amet, tincidunt in, ullamcorper condimentum, </a></p>
       </div>
       <div id="news">
@@ -55,5 +69,17 @@
       Copyright &copy; Your Company Name | Design by <a href="http://freshtemplates.com/">Website Templates</a></p>
   </div>
 </div>
+
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script>
+    function getFile(path) {
+        $.get({
+            url: "Home/DownloadSong",
+            success(response) {
+                console.log(response);
+            }
+        });
+    }
+</script>
 </body>
 </html>

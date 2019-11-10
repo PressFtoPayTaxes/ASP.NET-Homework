@@ -127,6 +127,17 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="audio\Buried Alive.mp3" />
+    <Content Include="audio\Danger Line.mp3" />
+    <Content Include="audio\Fiction.mp3" />
+    <Content Include="audio\God Hates Us.mp3" />
+    <Content Include="audio\Natural Born Killer.mp3" />
+    <Content Include="audio\Nightmare.mp3" />
+    <Content Include="audio\Save Me.mp3" />
+    <Content Include="audio\So Far Away.mp3" />
+    <Content Include="audio\Tonight the World Dies.mp3" />
+    <Content Include="audio\Victim.mp3" />
+    <Content Include="audio\Welcome to the Family.mp3" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />

@@ -1,4 +1,9 @@
 /* CSS Document */
+.song{display: flex; border: 1px solid black}
+.all{display: flex; width: 275px; justify-content: center;}
+.song div{width: 75px; display: flex; justify-content: flex-end;}
+.song span{width: 200px;}
+button{align-self: flex-end; background-color: #659311; color: white; border: 1px solid black}
 body{padding:0px; margin:0px; background:#292621; color:#969686; font:10px/14px Tahoma, Geneva, sans-serif;}
 div, p, ul, h2, h3, h4, img{padding:0px; margin:0px;}
 ul{list-style-type:none;}
