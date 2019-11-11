@@ -12,12 +12,5 @@ namespace ReturningResults.Controllers
         {
             return View();
         }
-
-        
-        public ActionResult DownloadSong()
-        {
-            //return File("~/audio/Nightmare.mp3", "audio/mp3", "Nightmare.mp3");
-            return Json(new { Data = "somedata" });
-        }
     }
 }
