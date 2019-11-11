@@ -1,0 +1,46 @@
+﻿@model ViewsRenderingAnalysis.Models.Product
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm("Create", "Products")) 
+{   
+    <div>
+        <h4>Product</h4>
+        <hr />
+        <div>
+            @Html.LabelFor(model => model.Name)
+            <div>
+                @Html.EditorFor(model => model.Name)
+            </div>
+        </div>
+
+        <div>
+            @Html.LabelFor(model => model.Price)
+            <div>
+                @Html.EditorFor(model => model.Price)
+            </div>
+        </div>
+
+        <div>
+            @Html.LabelFor(model => model.Weight)
+            <div>
+                @Html.EditorFor(model => model.Weight)
+            </div>
+        </div>
+
+        <div>
+            <div>
+                <input type="submit" value="Create"/>
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
