@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using WorkWithModel.DataAccess;
 using WorkWithModel.Models;
+using WorkWithModel.ViewModels;
 
 namespace WorkWithModel.Controllers
 {
@@ -16,9 +17,33 @@ namespace WorkWithModel.Controllers
     {
         private UserContext db = new UserContext();
 
-        public async Task<ActionResult> Index()
+        public ActionResult Index()
         {
-            return View(await db.Users.Where(user => user.IsAdmin == true).ToListAsync());
+            //var database = await db.Users.Where(user => user.IsAdmin == true).ToListAsync();
+            //var model = new List<UserViewModel>();
+            //foreach (var item in database)
+            //{
+            //    model.Add(new UserViewModel
+            //    {
+            //        UserName = item.UserName,
+            //        Password = item.Password
+            //    });
+            //}
+            return View(new UserViewModel());
+        }
+
+        
+        public async Task<ActionResult> CredentialsCheck(FormCollection values)
+        {
+            var database = await db.Users.Where(user => user.IsAdmin == true).ToListAsync();
+            foreach (var item in database)
+            {
+                if (item.UserName == values["UserName"] && item.Password == values["Password"])
+                {
+                    return Redirect("List");
+                }
+            }
+            return Redirect("Error");
         }
 
         // GET: Admin

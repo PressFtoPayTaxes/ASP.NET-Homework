@@ -1,0 +1,22 @@
+﻿@model WorkWithModel.ViewModels.UserViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm("CredentialsCheck", "Admin"))
+{
+<div class="form-group">
+    @Html.DisplayNameFor(model => model.UserName)
+    @Html.EditorFor(model => model.UserName)
+</div>
+<div class="form-group">
+    @Html.DisplayNameFor(model => model.Password)
+    @Html.EditorFor(model => model.Password)
+</div>
+
+    <input type="submit" value="Войти" />
+}
+

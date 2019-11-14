@@ -1,0 +1,11 @@
+C:\ASP.NET Home\IntroductionToAspNetCore\DataAccess\bin\Debug\netcoreapp3.0\DataAccess.deps.json
+C:\ASP.NET Home\IntroductionToAspNetCore\DataAccess\bin\Debug\netcoreapp3.0\DataAccess.dll
+C:\ASP.NET Home\IntroductionToAspNetCore\DataAccess\obj\Debug\netcoreapp3.0\DataAccess.csprojAssemblyReference.cache
+C:\ASP.NET Home\IntroductionToAspNetCore\DataAccess\obj\Debug\netcoreapp3.0\DataAccess.AssemblyInfoInputs.cache
+C:\ASP.NET Home\IntroductionToAspNetCore\DataAccess\obj\Debug\netcoreapp3.0\DataAccess.AssemblyInfo.cs
+C:\ASP.NET Home\IntroductionToAspNetCore\DataAccess\bin\Debug\netcoreapp3.0\DataAccess.pdb
+C:\ASP.NET Home\IntroductionToAspNetCore\DataAccess\bin\Debug\netcoreapp3.0\Models.dll
+C:\ASP.NET Home\IntroductionToAspNetCore\DataAccess\bin\Debug\netcoreapp3.0\Models.pdb
+C:\ASP.NET Home\IntroductionToAspNetCore\DataAccess\obj\Debug\netcoreapp3.0\DataAccess.csproj.CopyComplete
+C:\ASP.NET Home\IntroductionToAspNetCore\DataAccess\obj\Debug\netcoreapp3.0\DataAccess.dll
+C:\ASP.NET Home\IntroductionToAspNetCore\DataAccess\obj\Debug\netcoreapp3.0\DataAccess.pdb
