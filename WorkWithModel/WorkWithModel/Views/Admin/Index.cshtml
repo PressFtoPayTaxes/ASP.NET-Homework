@@ -1,22 +1,23 @@
-﻿@model WorkWithModel.ViewModels.UserViewModel
+﻿@model WorkWithModel.ViewModels.UserAuthorizationViewModel
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Authorization";
 }
 
-<h2>Index</h2>
+<h2>Authorization</h2>
 
-@using (Html.BeginForm("CredentialsCheck", "Admin"))
+@using(Html.BeginForm("CredentialsCheck", "Admin"))
 {
-<div class="form-group">
-    @Html.DisplayNameFor(model => model.UserName)
-    @Html.EditorFor(model => model.UserName)
-</div>
-<div class="form-group">
-    @Html.DisplayNameFor(model => model.Password)
-    @Html.EditorFor(model => model.Password)
-</div>
+    <div class="form-group">
+        @Html.DisplayNameFor(model => model.UserName)
+        @Html.EditorFor(model => model.UserName)
+    </div>
 
-    <input type="submit" value="Войти" />
+    <div class="form-group">
+        @Html.DisplayNameFor(model => model.Password)
+        @Html.EditorFor(model => model.Password)
+    </div>
+
+    <input type="submit" value="Sign in" />
 }
 

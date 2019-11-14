@@ -19,26 +19,15 @@ namespace WorkWithModel.Controllers
 
         public ActionResult Index()
         {
-            //var database = await db.Users.Where(user => user.IsAdmin == true).ToListAsync();
-            //var model = new List<UserViewModel>();
-            //foreach (var item in database)
-            //{
-            //    model.Add(new UserViewModel
-            //    {
-            //        UserName = item.UserName,
-            //        Password = item.Password
-            //    });
-            //}
-            return View(new UserViewModel());
+            return View(new UserAuthorizationViewModel());
         }
-
         
         public async Task<ActionResult> CredentialsCheck(FormCollection values)
         {
-            var database = await db.Users.Where(user => user.IsAdmin == true).ToListAsync();
+            var database = await db.Users.ToListAsync();
             foreach (var item in database)
             {
-                if (item.UserName == values["UserName"] && item.Password == values["Password"])
+                if(item.UserName == values["UserName"] && item.Password == values["Password"])
                 {
                     return Redirect("List");
                 }
@@ -46,10 +35,29 @@ namespace WorkWithModel.Controllers
             return Redirect("Error");
         }
 
+        public ActionResult Error()
+        {
+            return View();
+        }
+
         // GET: Admin
         public async Task<ActionResult> List()
         {
-            return View(await db.Users.Where(user => user.IsAdmin == false).ToListAsync());
+            List<UserViewModel> database = new List<UserViewModel>();
+            var noAdminDatabase = await db.Users.Where(user => user.IsAdmin == false).ToListAsync();
+
+            foreach (var item in noAdminDatabase)
+            {
+                database.Add(new UserViewModel
+                {
+                    Id = item.Id,
+                    Email = item.Email,
+                    Password = item.Password,
+                    UserName = item.UserName
+                });
+            }
+
+            return View(database);
         }
 
         // GET: Admin/Details/5
@@ -60,11 +68,18 @@ namespace WorkWithModel.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             User user = await db.Users.FindAsync(id);
-            if (user == null)
+            UserViewModel viewModel = new UserViewModel
+            {
+                Id = user.Id,
+                UserName = user.UserName,
+                Password = user.Password,
+                Email = user.Email
+            };
+            if (viewModel == null)
             {
                 return HttpNotFound();
             }
-            return View(user);
+            return View(viewModel);
         }
 
         // GET: Admin/Edit/5
@@ -82,22 +97,6 @@ namespace WorkWithModel.Controllers
             return View(user);
         }
 
-        // POST: Admin/Edit/5
-        // Чтобы защититься от атак чрезмерной передачи данных, включите определенные свойства, для которых следует установить привязку. Дополнительные 
-        // сведения см. в статье https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,UserName,Password,Email,IsAdmin,CreationDate")] User user)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(user).State = EntityState.Modified;
-                await db.SaveChangesAsync();
-                return RedirectToAction("Index");
-            }
-            return View(user);
-        }
-
         // GET: Admin/Delete/5
         public async Task<ActionResult> Delete(Guid? id)
         {
@@ -111,17 +110,6 @@ namespace WorkWithModel.Controllers
                 return HttpNotFound();
             }
             return View(user);
-        }
-
-        // POST: Admin/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> DeleteConfirmed(Guid id)
-        {
-            User user = await db.Users.FindAsync(id);
-            db.Users.Remove(user);
-            await db.SaveChangesAsync();
-            return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)

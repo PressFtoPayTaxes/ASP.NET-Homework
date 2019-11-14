@@ -137,7 +137,4 @@ C:\Users\Admin\Documents\ASP.NET\WorkWithModel\WorkWithModel\bin\Microsoft.CodeD
 C:\Users\Admin\Documents\ASP.NET\WorkWithModel\WorkWithModel\obj\Debug\WorkWithModel.csproj.CopyComplete
 C:\Users\Admin\Documents\ASP.NET\WorkWithModel\WorkWithModel\obj\Debug\WorkWithModel.dll
 C:\Users\Admin\Documents\ASP.NET\WorkWithModel\WorkWithModel\obj\Debug\WorkWithModel.pdb
-C:\ASP.NET Home\WorkWithModel\WorkWithModel\bin\EntityFramework.dll
-C:\ASP.NET Home\WorkWithModel\WorkWithModel\bin\EntityFramework.SqlServer.dll
-C:\ASP.NET Home\WorkWithModel\WorkWithModel\bin\EntityFramework.xml
-C:\ASP.NET Home\WorkWithModel\WorkWithModel\bin\EntityFramework.SqlServer.xml
+C:\Users\Admin\Documents\ASP.NET\WorkWithModel\WorkWithModel\obj\Debug\WorkWithModel.csprojAssemblyReference.cache
