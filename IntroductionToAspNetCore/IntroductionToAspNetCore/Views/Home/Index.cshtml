@@ -1,0 +1,19 @@
+﻿@model System.Collections.Generic.IEnumerable<Models.Product>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<table>
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.Name)</th>
+        <th>@Html.DisplayNameFor(model => model.Price)</th>
+    </tr>
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Price</td>
+        </tr>
+    }
+</table>
