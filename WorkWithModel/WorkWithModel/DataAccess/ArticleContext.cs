@@ -8,6 +8,7 @@ namespace WorkWithModel.DataAccess
         public ArticleContext()
             : base("name=ArticleContext")
         {
+            Database.SetInitializer(new ArticleInitializer());
         }
 
         public DbSet<Article> News { get; set; }

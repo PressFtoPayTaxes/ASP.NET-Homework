@@ -68,6 +68,10 @@ namespace WorkWithModel.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             User user = await db.Users.FindAsync(id);
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
             UserViewModel viewModel = new UserViewModel
             {
                 Id = user.Id,
@@ -75,10 +79,6 @@ namespace WorkWithModel.Controllers
                 Password = user.Password,
                 Email = user.Email
             };
-            if (viewModel == null)
-            {
-                return HttpNotFound();
-            }
             return View(viewModel);
         }
 
@@ -94,7 +94,14 @@ namespace WorkWithModel.Controllers
             {
                 return HttpNotFound();
             }
-            return View(user);
+            UserViewModel viewModel = new UserViewModel
+            {
+                Id = user.Id,
+                UserName = user.UserName,
+                Password = user.Password,
+                Email = user.Email
+            };
+            return View(viewModel);
         }
 
         // GET: Admin/Delete/5
@@ -109,7 +116,44 @@ namespace WorkWithModel.Controllers
             {
                 return HttpNotFound();
             }
-            return View(user);
+            UserViewModel viewModel = new UserViewModel
+            {
+                Id = user.Id,
+                UserName = user.UserName,
+                Password = user.Password,
+                Email = user.Email
+            };
+            return View(viewModel);
+        }
+
+        public async Task<ActionResult> UpdateUser(FormCollection values)
+        {
+            using (var context = new UserContext())
+            {
+                var id = Guid.Parse(values["Id"]);
+                var user = await context.Users.Where(item => item.Id == id).ToListAsync();
+                user[0].UserName = values["UserName"];
+                user[0].Password = values["Password"];
+                user[0].Email = values["Email"];
+
+                await context.SaveChangesAsync();
+            }
+
+            return Redirect("List");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> DeleteUser(Guid id)
+        {
+            using (var context = new UserContext())
+            {
+                var user = await context.Users.FindAsync(id);
+                context.Users.Remove(user);
+                await context.SaveChangesAsync();
+            }
+
+            return RedirectToAction("List");
         }
 
         protected override void Dispose(bool disposing)

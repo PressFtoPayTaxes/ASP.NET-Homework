@@ -1,0 +1,28 @@
+﻿.main{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+form{
+    border: 3px solid blue;
+    text-align: center;
+    padding: 10px 30px;
+}
+
+input[type='text']{
+    margin: 10px 0;
+    border-radius: 10%;
+    font-size: 14px;
+    text-align: center;
+    height: 30px;
+}
+
+input[type=submit]{
+    font-size: 16px;
+    background-color: blue;
+    color: white;
+    border-radius: 5%;
+    border: 0;
+    padding: 10px 30px;
+}

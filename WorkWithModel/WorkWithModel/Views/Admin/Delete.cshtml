@@ -1,4 +1,4 @@
-﻿@model WorkWithModel.Models.User
+﻿@model WorkWithModel.ViewModels.UserViewModel
 
 @{
     ViewBag.Title = "Delete";
@@ -35,25 +35,9 @@
             @Html.DisplayFor(model => model.Email)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.IsAdmin)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.IsAdmin)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CreationDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CreationDate)
-        </dd>
-
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm("DeleteUser", "Admin", new { id = Model.Id })) {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">

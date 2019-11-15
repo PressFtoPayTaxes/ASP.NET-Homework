@@ -1,0 +1,32 @@
+﻿@model System.Collections.Generic.IEnumerable<WorkWithModel.Models.Article>
+
+@{
+    ViewBag.Title = "News";
+    Layout = "";
+}
+
+<link rel="stylesheet" href="~/Content/style.css" />
+<link rel="stylesheet" href="~/Content/news-style.css" />
+
+<nav>
+    <h2>News</h2>
+</nav>
+
+<div class="main">
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li>
+                <div class="article">
+                    <img src="@item.ImageSource" />
+                    <h3>@item.Theme</h3>
+                    <p>@item.Description</p>
+                </div>
+            </li>
+        }
+    </ul>
+</div>
+
+
+
+
