@@ -7,25 +7,38 @@
 
 <form>
     <h3>Write Message:</h3>
-    <input type="text" name="author" placeholder="Your name" />
+    <input style="margin-bottom: 10px;" type="text" id="author" placeholder="Your name" />
     <br />
-    <textarea name="text" placeholder="Your message"></textarea>
+    <textarea type="text" id="message" placeholder="Your message"></textarea>
     <br />
-    <button id="send">Send</button>
+    <button>Send</button>
 </form>
 
 <div id="posts">
-    @foreach(var post in posts)
+    @foreach (var post in posts)
     {
-        <h3>@post.Author:</h3>
-        <p>@post.Text</p>
+        <div>
+            <h3>@post.Author:</h3>
+            <p>@post.Text</p>
+        </div>
     }
 </div>
 
+<script src="~/Scripts/jquery-3.3.1.js"></script>
 <script>
-    $('#send').on("click", function () {
-        $.post({
-            url: "SaveData"
+    $('button').on('click', function(e) {
+        e.preventDefault();
+        $.ajax({
+            url: "SaveData",
+            type: 'post',
+            data: {
+                author: $('#author').val(),
+                text: $('#message').val()
+            },
+            complete(response) {
+                console.log(response);
+                update();
+            }
         })
     });
 
@@ -33,12 +46,16 @@
         $.get({
             url: "GetData",
             success(response) {
+                console.log(response);
                 $("#posts").html('');
                 for (var i = 0; i < response.length; i++) {
-                    $('#posts').prepend(`<h3>${response.responseData[i].Author}:</h3>
-                                         <p>${response.responseData[i].Text}</p>`);
+                   $('#posts').prepend($(`<div><h3>${response[i].Author}:</h3>
+                                         <p>${response[i].Text}</p></div>`));
                 }
             }
         });
     }
+    $(window).on("load", update);
+
+    setInterval(update, 10000);
 </script>
