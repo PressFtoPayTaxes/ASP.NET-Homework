@@ -16,7 +16,7 @@ namespace MethodsSelectorsAndAttributes.Areas.NewsArea
         {
             context.MapRoute(
                 "NewsArea_default",
-                "news/{controller}/{action}/{id}",
+                "NewsArea/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional }
             );
         }

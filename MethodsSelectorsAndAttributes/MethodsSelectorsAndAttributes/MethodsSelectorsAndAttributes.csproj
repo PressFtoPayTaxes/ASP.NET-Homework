@@ -130,6 +130,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\AdminPanel\AdminPanelAreaRegistration.cs" />
+    <Compile Include="Areas\AdminPanel\Controllers\AdminController.cs" />
     <Compile Include="Areas\NewsArea\Controllers\HomeController.cs" />
     <Compile Include="Areas\NewsArea\NewsAreaAreaRegistration.cs" />
     <Compile Include="DataAccess\NewsContext.cs" />
@@ -140,6 +141,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\AdminPanel\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\AdminPanel\Views\Admin\Index.cshtml" />
     <None Include="Areas\NewsArea\Views\Home\index.cshtml" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -194,6 +198,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\script.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -208,9 +213,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\AdminPanel\Controllers\" />
     <Folder Include="Areas\AdminPanel\Models\" />
-    <Folder Include="Areas\AdminPanel\Views\Shared\" />
     <Folder Include="Areas\NewsArea\Models\" />
     <Folder Include="Areas\NewsArea\Views\Shared\" />
     <Folder Include="Controllers\" />

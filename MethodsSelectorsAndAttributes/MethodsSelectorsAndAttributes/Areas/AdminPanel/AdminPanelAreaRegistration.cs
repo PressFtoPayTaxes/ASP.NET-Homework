@@ -16,7 +16,7 @@ namespace MethodsSelectorsAndAttributes.Areas.AdminPanel
         {
             context.MapRoute(
                 "AdminPanel_default",
-                "admin/{controller}/{action}/{id}",
+                "AdminPanel/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional }
             );
         }
