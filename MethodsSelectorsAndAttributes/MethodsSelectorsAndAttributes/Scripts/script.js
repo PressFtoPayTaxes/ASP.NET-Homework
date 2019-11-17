@@ -17,7 +17,7 @@ function htmlUpdate(posts) {
     for (var i = 0; i < posts.length; i++) {
         $(".posts").append($(`<div class="col-md-12">
                                     <div class="post post-row">
-                                        <a class="post-img" href="#"><img src="${posts[i].ImageSource}" alt=""></a>
+                                        <a class="post-img" href="#"><img src="${posts[i].ImageLink}" alt=""></a>
                                         <div class="post-body">
                                             <h3 class="post-title"><a href="#">${posts[i].Header}</a></h3>
                                             <p>${posts[i].Text}</p>
