@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Twilio;
 using Twilio.Rest.Api.V2010.Account;
 
@@ -11,14 +8,14 @@ namespace DependencyInjectionLesson.Services
     {
         public Task SendSms(string phoneNumber)
         {
-            const string accountSid = "ACd24769f7bcf82e80861fde0719a3cc1f";
-            const string authToken = "f8c770a942e3f56b48ab5808f5fe0715";
+            const string accountSid = "ACfd3a59498b9338b75e77b9b2df1c5d20";
+            const string authToken = "29c18325e74ec04668c1dc46b0f6baca";
 
             TwilioClient.Init(accountSid, authToken);
 
             return MessageResource.CreateAsync(
                 body: "Join Earth's mightiest heroes. Like Kevin Bacon.",
-                from: new Twilio.Types.PhoneNumber("+15005550006"),
+                from: new Twilio.Types.PhoneNumber("+15803664617"),
                 to: new Twilio.Types.PhoneNumber(phoneNumber)
             );
         }

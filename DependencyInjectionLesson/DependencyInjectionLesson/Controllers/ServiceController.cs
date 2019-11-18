@@ -1,20 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using DependencyInjectionLesson.DTOs;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
-using System.Net.Mail;
-using Twilio;
-using Twilio.Rest.Api.V2010.Account;
 using DependencyInjectionLesson.Services;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace DependencyInjectionLesson.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class ServiceController : Controller
     {
@@ -37,16 +30,16 @@ namespace DependencyInjectionLesson.Controllers
         }
         
         [HttpPost]
-        public async Task<IActionResult> SaveEntity(EmailMessageDTO emailMessage)
+        public async Task<IActionResult> SendEmail(EmailMessageDTO emailMessage)
         {
             await emailSenderService.SendEmail(emailMessage);
             return Ok();
         }
         
-        [HttpGet("{phoneNumber}")]
-        public async Task<IActionResult> GetCodeVerification(string phoneNumber)
+        [HttpGet/*("{phoneNumber}")*/]
+        public async Task<IActionResult> GetCodeVerification(/*string phoneNumber = "+77015286829"*/)
         {
-            await smsSenderService.SendSms(phoneNumber);
+            await smsSenderService.SendSms("+77015286829");
             return Ok();
         }
     }
