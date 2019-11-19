@@ -1,7 +1,4 @@
 ﻿using DependencyInjectionLesson.DTOs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Mail;
 using System.Threading.Tasks;
 using System.Net;
@@ -16,6 +13,7 @@ namespace DependencyInjectionLesson.Services
             {
                 client.Credentials = new NetworkCredential { UserName = "igor_2002_25@mail.ru", Password = "GoFuckYourselfHack3r" };
                 client.EnableSsl = true;
+                client.Timeout = 5000;
                 return client.SendMailAsync("igor_2002_25@mail.ru", emailMessage.To, emailMessage.Title, emailMessage.Text);
             }
         }

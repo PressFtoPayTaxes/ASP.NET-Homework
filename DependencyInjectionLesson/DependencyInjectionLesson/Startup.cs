@@ -1,11 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using DependencyInjectionLesson.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -19,6 +14,7 @@ namespace DependencyInjectionLesson
         {
             services.AddTransient<IEntitySaverService, EntitySaverService>();
             services.AddTransient<IEmailSenderService, EmailSenderService>();
+            services.AddTransient<ISmsSenderService, SmsSenderService>();
 
             services.AddMvc(options => options.EnableEndpointRouting = false);
         }

@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\СкоропадИг\\Desktop\\ASP.NET Homework\\DependencyInjectionLesson\\DependencyInjectionLesson\\DependencyInjectionLesson.csproj": {}
+    "C:\\Users\\Admin\\Documents\\ASP.NET\\DependencyInjectionLesson\\DependencyInjectionLesson\\DependencyInjectionLesson.csproj": {}
   },
   "projects": {
-    "C:\\Users\\СкоропадИг\\Desktop\\ASP.NET Homework\\DependencyInjectionLesson\\DependencyInjectionLesson\\DependencyInjectionLesson.csproj": {
+    "C:\\Users\\Admin\\Documents\\ASP.NET\\DependencyInjectionLesson\\DependencyInjectionLesson\\DependencyInjectionLesson.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\СкоропадИг\\Desktop\\ASP.NET Homework\\DependencyInjectionLesson\\DependencyInjectionLesson\\DependencyInjectionLesson.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\Documents\\ASP.NET\\DependencyInjectionLesson\\DependencyInjectionLesson\\DependencyInjectionLesson.csproj",
         "projectName": "DependencyInjectionLesson",
-        "projectPath": "C:\\Users\\СкоропадИг\\Desktop\\ASP.NET Homework\\DependencyInjectionLesson\\DependencyInjectionLesson\\DependencyInjectionLesson.csproj",
-        "packagesPath": "C:\\Users\\СкоропадИг\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\СкоропадИг\\Desktop\\ASP.NET Homework\\DependencyInjectionLesson\\DependencyInjectionLesson\\obj\\",
+        "projectPath": "C:\\Users\\Admin\\Documents\\ASP.NET\\DependencyInjectionLesson\\DependencyInjectionLesson\\DependencyInjectionLesson.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\Documents\\ASP.NET\\DependencyInjectionLesson\\DependencyInjectionLesson\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\СкоропадИг\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
