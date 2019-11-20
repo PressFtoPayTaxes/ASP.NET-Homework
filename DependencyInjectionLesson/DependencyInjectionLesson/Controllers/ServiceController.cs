@@ -37,9 +37,9 @@ namespace DependencyInjectionLesson.Controllers
         }
         
         [HttpGet/*("{phoneNumber}")*/]
-        public async Task<IActionResult> GetCodeVerification(/*string phoneNumber = "+77015286829"*/)
+        public async Task<IActionResult> GetCodeVerification(string phoneNumber)
         {
-            await smsSenderService.SendSms("+77015286829");
+            await smsSenderService.SendSms(phoneNumber);
             return Ok();
         }
     }
