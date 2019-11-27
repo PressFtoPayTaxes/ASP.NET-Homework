@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29324.140
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueryConveyor", "QueryConveyor\QueryConveyor.csproj", "{CC15CF11-57C1-40BC-BBCF-1A01FBD2856A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CC15CF11-57C1-40BC-BBCF-1A01FBD2856A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC15CF11-57C1-40BC-BBCF-1A01FBD2856A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC15CF11-57C1-40BC-BBCF-1A01FBD2856A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC15CF11-57C1-40BC-BBCF-1A01FBD2856A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2B2E6F0E-DBDF-4AE0-B919-2BC480423076}
+	EndGlobalSection
+EndGlobal
