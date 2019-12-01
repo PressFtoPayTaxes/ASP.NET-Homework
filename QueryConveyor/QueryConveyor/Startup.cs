@@ -29,8 +29,7 @@ namespace QueryConveyor
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddDbContext<UsersContext>(x => x.UseSqlServer("Server=A-205-10;Database=UserDb;Trusted_Connection=true"));
-            services.AddSingleton<UsersContext>();
+            services.AddDbContext<UsersContext>(contextLifetime: ServiceLifetime.Singleton, optionsAction: x => x.UseSqlServer(@"Server=(localdb)\v11.0;Database=UsersDatabase;Trusted_Connection=true;"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,6 +45,11 @@ namespace QueryConveyor
             app.UseRouting();
 
             app.UseAuthorizationCheck();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
         }
     }
 }

@@ -8058,23 +8058,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\СкоропадИг\\.nuget\\packages\\": {},
+    "C:\\Users\\Admin\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\СкоропадИг\\Desktop\\ASP.NET Homework\\QueryConveyor\\QueryConveyor\\QueryConveyor.csproj",
+      "projectUniqueName": "C:\\Users\\Admin\\Documents\\ASP.NET\\QueryConveyor\\QueryConveyor\\QueryConveyor.csproj",
       "projectName": "QueryConveyor",
-      "projectPath": "C:\\Users\\СкоропадИг\\Desktop\\ASP.NET Homework\\QueryConveyor\\QueryConveyor\\QueryConveyor.csproj",
-      "packagesPath": "C:\\Users\\СкоропадИг\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\СкоропадИг\\Desktop\\ASP.NET Homework\\QueryConveyor\\QueryConveyor\\obj\\",
+      "projectPath": "C:\\Users\\Admin\\Documents\\ASP.NET\\QueryConveyor\\QueryConveyor\\QueryConveyor.csproj",
+      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Admin\\Documents\\ASP.NET\\QueryConveyor\\QueryConveyor\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\СкоропадИг\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
