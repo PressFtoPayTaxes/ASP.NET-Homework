@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "Z:\\ASP.NET\\Configurations\\Configurations\\Configurations.csproj": {}
+    "C:\\Users\\Admin\\Documents\\ASP.NET\\Configurations\\Configurations\\Configurations.csproj": {}
   },
   "projects": {
-    "Z:\\ASP.NET\\Configurations\\Configurations\\Configurations.csproj": {
+    "C:\\Users\\Admin\\Documents\\ASP.NET\\Configurations\\Configurations\\Configurations.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "Z:\\ASP.NET\\Configurations\\Configurations\\Configurations.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\Documents\\ASP.NET\\Configurations\\Configurations\\Configurations.csproj",
         "projectName": "Configurations",
-        "projectPath": "Z:\\ASP.NET\\Configurations\\Configurations\\Configurations.csproj",
-        "packagesPath": "C:\\Users\\СкоропадИг\\.nuget\\packages\\",
-        "outputPath": "Z:\\ASP.NET\\Configurations\\Configurations\\obj\\",
+        "projectPath": "C:\\Users\\Admin\\Documents\\ASP.NET\\Configurations\\Configurations\\Configurations.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\Documents\\ASP.NET\\Configurations\\Configurations\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\СкоропадИг\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

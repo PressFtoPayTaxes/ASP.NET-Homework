@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Configurations.DataAccess;
 using Configurations.DTOs;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
 
 namespace Configurations.Controllers
 {
@@ -15,10 +13,12 @@ namespace Configurations.Controllers
     public class ShopController : ControllerBase
     {
         private readonly ShopContext context;
+        private readonly IPaymentService paymentService;
 
-        public ShopController(ShopContext context)
+        public ShopController(ShopContext context, IPaymentService paymentService)
         {
             this.context = context;
+            this.paymentService = paymentService;
         }
 
         [HttpGet]
@@ -44,9 +44,13 @@ namespace Configurations.Controllers
         }
 
         [HttpOptions]
-        public async Task<IActionResult> Options(Guid id)
+        public async Task<IActionResult> Pay(Guid id)
         {
-            
+            var basket = await context.Baskets.Where(basket => basket.User.Id == id).FirstAsync();
+
+            var paymentId = await paymentService.MakePayment(basket);
+
+            return Ok(paymentId);
         }
     }
 }
