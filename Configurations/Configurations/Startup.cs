@@ -22,8 +22,7 @@ namespace Configurations
         {
             services.AddControllers();
             services.AddDbContext<ShopContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ShopDb")));
-            services.AddSingleton<ShopContext>();
-
+            services.AddTransient<IPaymentService, PayPalService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

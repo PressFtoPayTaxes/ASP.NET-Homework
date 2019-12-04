@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using QueryConveyor.DataAccess;
+using QueryConveyor.DTOs;
 using QueryConveyor.Models;
 
 namespace QueryConveyor.Controllers
@@ -27,7 +28,21 @@ namespace QueryConveyor.Controllers
             context.Users.Add(user);
             await context.SaveChangesAsync();
 
-            return Ok();
+            return Ok(new { user.AuthorizationToken });
+        }
+
+        [HttpGet]
+        public IActionResult LogIn(LogInDTO dto)
+        {
+            foreach (var item in context.Users)
+            {
+                if(item.Login == dto.Login && item.Password == dto.Password)
+                {
+                    return Ok(new { item.AuthorizationToken });
+                }
+            }
+
+            return BadRequest();
         }
     }
 }

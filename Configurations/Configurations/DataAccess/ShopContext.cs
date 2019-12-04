@@ -1,8 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Configurations.DataAccess
 {
@@ -29,15 +25,15 @@ namespace Configurations.DataAccess
             modelBuilder.Entity<Product>().HasData(new Product
             {
                 Name = "Potato",
-                Price = 120.00
+                Price = 2.00
             },
             new Product { 
                 Name = "Tomato",
-                Price = 156.23
+                Price = 3.99
             },
             new Product { 
                 Name = "Table",
-                Price = 23455.00
+                Price = 10.00
             });
         }
     }
