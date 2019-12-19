@@ -1,0 +1,17 @@
+﻿@page
+@model RazorPages.Pages.App.LogInModel
+@{
+    ViewData["Title"] = "LogIn";
+}
+
+<h1>LogIn</h1>
+
+<form method="post">
+    <input type="text" asp-for="@Model.ExistingUser.Login" placeholder="Login"/>
+    <br />
+    <input type="password" asp-for="@Model.ExistingUser.Password" placeholder="Password" />
+    <br />
+    <a asp-page="Register">Dont't have an account yet? Register here</a>
+    <br />
+    <input type="submit" value="Log In" />
+</form>
