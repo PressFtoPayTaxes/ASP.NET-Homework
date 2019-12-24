@@ -1,20 +1,13 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using RazorPages.DataAccess;
-using RazorPages.Options;
 using RazorPages.Services;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Http;
 
 namespace RazorPages
 {
@@ -34,35 +27,20 @@ namespace RazorPages
 
             services.AddTransient<AuthService>();
 
-            services.Configure<AuthenticationSecretOptions>(Configuration.GetSection("JWTAuthentication")
-                                                            .GetSection("Secret"));
-            services.Configure<ValidAudienceOptions>(Configuration.GetSection("JWTAuthentication")
-                                                        .GetSection("ValidAudience"));
-            services.Configure<ValidIssuerOptions>(Configuration.GetSection("JWTAuthentication")
-                                                    .GetSection("ValidIssuer"));
-
             services.AddDbContext<DataContext>(options => options.UseSqlServer(Configuration
                                                 .GetConnectionString("DbConnection")));
 
-            var secrets = Configuration.GetSection("Secrets");
-            var key = Encoding.ASCII.GetBytes(secrets.GetValue<string>("JWTSecret"));
-            services.AddAuthentication(x =>
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
             {
-                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            })
-            .AddJwtBearer(x =>
-            {
-                x.RequireHttpsMetadata = false;
-                x.SaveToken = true;
-                x.TokenValidationParameters = new TokenValidationParameters
-                {
-                    ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(key),
-                    ValidateIssuer = false,
-                    ValidateAudience = false
-                };
+                options.LoginPath = "/App/LogIn";
             });
+
+            services.Configure<CookiePolicyOptions>(options =>
+            {
+                options.CheckConsentNeeded = context => true;
+                options.MinimumSameSitePolicy = SameSiteMode.None;
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -83,6 +61,8 @@ namespace RazorPages
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseCookiePolicy();
 
             app.UseAuthentication();
             app.UseAuthorization();

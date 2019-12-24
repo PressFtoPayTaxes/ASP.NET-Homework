@@ -1,0 +1,15 @@
+﻿@model Admin
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>LogIn</h1>
+
+<form asp-action="Authenticate" method="post">
+    <input asp-for="@Model.Login" type="text" />
+    <br />
+    <input asp-for="@Model.Password" type="password" />
+    <br />
+    <input type="submit" value="Log In" />
+</form>
+

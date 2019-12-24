@@ -1,0 +1,23 @@
+﻿@model AspNetMVCCoreVsMVCFrameworkComparison2.Models.Portfolio
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit Portfolio</h1>
+
+<form>
+    <input type="text" asp-for="@Model.FullName" />
+    <br />
+    <input type="number" asp-for="@Model.Age" />
+    <br />
+    <input type="text" asp-for="@Model.Email" />
+    <br />
+    <input type="text" asp-for="@Model.EducationalInstitution" />
+    <br />
+    <input type="text" asp-for="@Model.WorkPlace" />
+    <br />
+    <input type="text" asp-for="@Model.Job" />
+    <br />
+    <input type="text" asp-for="@Model.Achievements" />
+    <br />
+</form>

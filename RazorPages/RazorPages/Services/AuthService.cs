@@ -1,14 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
-using Microsoft.IdentityModel.Tokens;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using RazorPages.DataAccess;
-using RazorPages.Options;
 using System;
 using System.Collections.Generic;
-using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
 using System.Security.Claims;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace RazorPages.Services
@@ -16,42 +13,46 @@ namespace RazorPages.Services
     public class AuthService
     {
         private readonly DataContext context;
-        private readonly string secret;
-        private readonly string audience;
-        private readonly string issuer;
+        private readonly IHttpContextAccessor accessor;
 
-        public AuthService(DataContext context, IOptions<AuthenticationSecretOptions> secret, 
-                               IOptions<ValidAudienceOptions> audience, IOptions<ValidIssuerOptions> issuer)
+        public AuthService(DataContext context, IHttpContextAccessor accessor)
         {
             this.context = context;
-            this.secret = secret.Value.Secret;
-            this.audience = audience.Value.Audience;
-            this.issuer = issuer.Value.Issuer;
+            this.accessor = accessor;
         }
 
-        public async Task<string> Authenticate(string login, string password)
+        public async Task<bool> Authenticate(string login, string password)
         {
             var existingUser = await context.Users.FirstOrDefaultAsync(user => user.Login == login &&
                                                                            user.Password == password);
             if(existingUser == null)
             {
-                return null;
+                return false;
             }
 
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(secret);
-            var tokenDescriptor = new SecurityTokenDescriptor
+            var claims = new List<Claim>
             {
-                Subject = new ClaimsIdentity(new Claim[]
-                {
-                    new Claim(ClaimTypes.NameIdentifier, existingUser.Id.ToString())
-                }),
-                Expires = DateTime.UtcNow.AddDays(7),
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+                new Claim(ClaimTypes.NameIdentifier, existingUser.Id.ToString())
             };
-            var token = tokenHandler.CreateToken(tokenDescriptor);
 
-            return tokenHandler.WriteToken(token);
+            var claimsIdentity = new ClaimsIdentity(
+                claims, CookieAuthenticationDefaults.AuthenticationScheme);
+
+            var authProperties = new AuthenticationProperties
+            {
+                AllowRefresh = true,
+                ExpiresUtc = DateTimeOffset.UtcNow.AddDays(1),
+                IsPersistent = true,
+                IssuedUtc = DateTime.Now,
+                RedirectUri = "/App/Posts"
+            };
+
+            await accessor.HttpContext.SignInAsync(
+                CookieAuthenticationDefaults.AuthenticationScheme,
+                new ClaimsPrincipal(claimsIdentity),
+                authProperties);
+
+            return true;
         }
     }
 }
