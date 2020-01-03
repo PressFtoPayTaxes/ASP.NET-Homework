@@ -1,0 +1,93 @@
+﻿@page
+@model RazorPages.Pages.App.PostsModel
+@{
+    ViewData["Title"] = "Posts";
+}
+
+<h1>Posts</h1>
+<button asp-page="/App/AddPost">Add new post</button>
+@foreach(var post in Model.Posts)
+{
+    <div class="post w-50 h-auto">
+        <img src="~/@post.ImageUrl" class="w-100"/>
+        <div class="description">
+            <p><b>@post.User.Login</b></p>
+            <p>@post.Description</p>
+        </div>
+        <div class="likes">
+            @if (Model.CurrentUser.LikedPosts.LikedPostListPosts.SingleOrDefault(postlist => postlist.PostId == post.Id) != null)
+            {
+                <button style="color: red;" onclick="unlike({ postId: '@post.Id', userId: '@Model.CurrentUser.Id' })"><i class="fas fa-heart"></i></button>
+            }
+            else
+            {
+                <button style="color: black;" onclick="like({ postId: '@post.Id', userId: '@Model.CurrentUser.Id' })"><i class="fas fa-heart"></i></button>
+            }
+            <span>@post.Likes</span>
+        </div>
+        <div class="comments">
+            @foreach(var comment in post.Comments)
+            {
+                <div class="comment">
+                    <p><b>@comment.User.Login</b></p>
+                    <p>@comment.Text</p>
+                </div>
+                <hr />
+            }
+        </div>
+        <form method="post">
+            <textarea placeholder="Your comment:" asp-for="@Model.NewComment"></textarea>   
+            <br />
+            <input type="hidden" name="postId" value="@post.Id" />
+            <input type="submit" />
+        </form>
+    </div>
+}
+
+<style>
+    .description{
+        padding: 10px;
+        border: 1px solid black;
+    }
+    .likes{
+        background-color: transparent;
+    }
+</style>
+
+<script>
+    function like(options) {
+        $.ajax({
+            method: "PUT",
+            url: "/App/Posts?handler=Like",
+            beforeSend: function (xhr) {
+                            xhr.setRequestHeader("XSRF-TOKEN",
+                                $('input:hidden[name="__RequestVerificationToken"]').val());
+            },
+            data: {
+                postId: options.postId,
+                userId: options.userId
+            },
+            success(){
+                $(this).css("color", "red");
+            }
+        });
+    }
+
+    function unlike(options) {
+        $.ajax({
+            method: "PUT",
+            url: "/App/Posts?handler=Unlike",
+            beforeSend: function (xhr) {
+                            xhr.setRequestHeader("XSRF-TOKEN",
+                                $('input:hidden[name="__RequestVerificationToken"]').val());
+                        },
+            data: {
+                postId: options.postId,
+                userId: options.userId
+            },
+            success(){
+                $(this).css("color", "black");
+            }
+        });
+    }
+</script>

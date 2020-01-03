@@ -7,10 +7,9 @@
 <h1>Add new post</h1>
 
 <form method="post">
-    <input type="file" asp-for="@Model.FilePath" />
+    <input type="text" asp-for="@Model.ImageUrl" placeholder="Image URL"/>
     <br />
-    <textarea asp-for="@Model.Description"></textarea>
+    <textarea asp-for="@Model.Description" placeholder="Description"></textarea>
     <br />
     <input type="submit" value="Add"/>
 </form>
-

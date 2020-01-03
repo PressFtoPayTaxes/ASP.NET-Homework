@@ -30,14 +30,13 @@ namespace RazorPages.Pages.App
 
         public async Task<IActionResult> OnPostAsync()
         {
-            var token = await authService.Authenticate(ExistingUser.Login, ExistingUser.Password);
-            if(token == null)
+            var isAuthenticated = await authService.Authenticate(ExistingUser.Login, ExistingUser.Password);
+            if(!isAuthenticated)
             {
                 return Unauthorized();
             }
 
-            RedirectToPage("Posts");
-            return Content(token);
+            return RedirectToPage("Posts");
         }
     }
 }

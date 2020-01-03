@@ -18,6 +18,7 @@ namespace RazorPages.DataAccess
         public DbSet<Post> Posts { get; set; }
         public DbSet<Comment> Comments { get; set; }
         public DbSet<LikedPostsListPost> LikedPostsListPosts { get; set; }
+        public DbSet<LikedPostsList> LikedPostsLists { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -24,7 +24,9 @@ namespace RazorPages
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+            services.AddAntiforgery(o => o.HeaderName = "XSRF-TOKEN");
 
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddTransient<AuthService>();
 
             services.AddDbContext<DataContext>(options => options.UseSqlServer(Configuration

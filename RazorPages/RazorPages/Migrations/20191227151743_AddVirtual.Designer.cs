@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RazorPages.DataAccess;
 
 namespace RazorPages.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20191227151743_AddVirtual")]
+    partial class AddVirtual
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -69,7 +71,7 @@ namespace RazorPages.Migrations
                     b.HasIndex("UserId")
                         .IsUnique();
 
-                    b.ToTable("LikedPostsLists");
+                    b.ToTable("LikedPostsList");
                 });
 
             modelBuilder.Entity("RazorPages.Models.LikedPostsListPost", b =>
