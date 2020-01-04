@@ -1,0 +1,17 @@
+﻿@model CookieAuthentication.ViewModels.AuthViewModel
+
+@{
+    ViewData["Title"] = "LogIn";
+}
+
+<h1>LogIn</h1>
+
+<form asp-action="Authenticate" method="post">
+    <input type="text" asp-for="@Model.Login" placeholder="Login"/>
+    <br />
+    <input type="password" asp-for="@Model.Password" placeholder="Password"/>
+    <br />
+    <a asp-action="Register">Don't have account yet? Register here</a>
+    <br />
+    <input type="submit" />
+</form>
